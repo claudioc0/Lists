@@ -59,5 +59,31 @@ public class StaticList {
         }
     }
 
+    public int getData(int pos){
+        if (pos>=size || pos<0){
+            System.out.println("Posicao invalida");
+        }
+        return data[pos];
+    }
 
+    public void setData(int data, int pos) {
+        if (pos >= size || pos < 0) {
+            System.out.println("Posição inválida");
+        } else {
+            this.data[pos] = data;
+        }
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    public int find(int value) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == value) {
+                return i; 
+            }
+        }
+        return -1;
+    }
 }
