@@ -24,19 +24,20 @@ public class StaticList {
         }
     }
 
-    public void add(int value, int pos){
-        if (isFull()){
+    public void add(int value, int pos) {
+        if (isFull()) {
             System.out.println("A lista está cheia");
-        }else if(pos > size){
-            System.out.println("Posicao inválida");
-        }else {
-            for (int i = size; i >= pos ; i--) {
-                data[i] = data[i-1];
+        } else if (pos > size || pos < 0) {
+            System.out.println("Posição inválida");
+        } else {
+            for (int i = size; i > pos; i--) {
+                data[i] = data[i - 1];
             }
-            data[value] = pos;
+            data[pos] = value;
             size++;
         }
     }
+
 
     public int remove(int pos) {
         if (isEmpty()) {
@@ -53,11 +54,13 @@ public class StaticList {
         return data[pos];
     }
 
-    public void clear(){
-        for (int i = 0; i < size ; i++) {
-            data[i] = Integer.parseInt(null);
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            data[i] = 0;
         }
+        size = 0;
     }
+
 
     public int getData(int pos){
         if (pos>=size || pos<0){
@@ -86,4 +89,17 @@ public class StaticList {
         }
         return -1;
     }
+
+    public void print() {
+        if (isEmpty()) {
+            System.out.println("Lista vazia");
+        } else {
+            System.out.print("Conteúdo da lista: ");
+            for (int i = 0; i < size; i++) {
+                System.out.print(data[i] + " ");
+            }
+            System.out.println();
+        }
+
+}
 }
